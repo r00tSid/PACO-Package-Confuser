@@ -1,143 +1,181 @@
 <p align="center">
-  <a href="#" target="_blank">
-    <img src="./icons/icon128.png" alt="PACO Logo" width="150" height="150" />
-  </a>
+  <img src="./icons/icon128.png" alt="PACO Logo" width="150" height="150" />
 </p>
 
-<h1 align="center">🎭 PACO - Package Confuser</h1>
+<h1 align="center">⚡ PACO v3.1 – Dependency Hunter</h1>
 
 <p align="center">
-🕵️‍♂️ Chrome Extension to uncover unpublished, removed, or broken packages in GitHub repositories across major ecosystems.
+🛡️ Advanced Chrome Extension to detect unpublished, removed, or suspicious dependencies across GitHub repositories.
 </p>
 
 <p align="center">
-  <a href="https://www.producthunt.com/posts/paco-package-confuser?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-paco&#0045;package&#0045;confuser" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=962953&theme=dark&t=1746719637755" alt="PACO&#0032;–&#0032;Package&#0032;Confuser - 🧩&#0032;Chrome&#0032;extension&#0032;to&#0032;find&#0032;missing&#0032;NPM&#0032;packages | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+Lightweight • Fast • Security-Focused • Zero Tracking
 </p>
 
 ---
-## Tested By - **Sidhanta Palei** – [Click to Check Linkedin Proofs](https://www.linkedin.com/posts/sidhanta-palei-58791323b_cybersecurity-opensource-browserextensions-activity-7326265250578616320-COb6?utm_source=share&utm_medium=member_android&rcm=ACoAAD8AocQBpSRpmmF7i9dBqZX3NcBEI7W-3gI)
 
+## 👨‍🔬 Tested By
 
-## 📽️ Live Demo
-
-<p align="center">
-  <img src="icons/demo.gif" alt="PACO Live Demo" width="720px">
-</p>
-
+**Sidhanta Palei (@r00tSid)**  
+Security Researcher | Bug Bounty Hunter  
 
 ---
-## 🛠 Load in Chrome
+
+# 🚀 What is PACO?
+
+**PACO (Package Confuser)** is a Chrome Extension designed to help developers and security researchers identify:
+
+- 🔴 Unpublished packages  
+- ❌ Non-existent dependencies  
+- ⚠️ Potential dependency confusion risks  
+- 📦 Broken or removed packages  
+
+It scans public GitHub repositories and validates dependencies directly against official package registries.
+
+---
+
+# 🆕 What's New in v3.1
+
+### 🔥 Smart Ecosystem Auto-Detection
+PACO automatically detects ecosystem based on the current page:
+
+- `Gemfile` → Ruby  
+- `package.json` → NPM  
+- `requirements.txt` → Python  
+
+Works on:
+- Repository pages
+- Blob/file pages
+- GitHub search result pages
+
+---
+
+### 📦 JSON Export Support
+One-click **SAVE SCAN RESULTS** button downloads a structured JSON report containing:
+
+- Target URL
+- Ecosystem
+- Total dependencies scanned
+- Total findings
+- Timestamp
+- Detailed findings list
+
+---
+
+### 🧠 Intelligent Deduplication
+- Prevents duplicate dependency scans
+- Prevents duplicate findings
+- Optimized request queue for performance
+
+---
+
+### 🔎 Improved Search Page Handling
+Fully supports scanning directly from:
+
+
+Ecosystem detection is now context-aware and URL-driven.
+
+---
+
+# 🛠 Installation
 
 1. Open **Google Chrome**
-2. Navigate to: `chrome://extensions/`
-3. In the top-right corner, enable **Developer mode**
-4. Click on **Load unpacked**
-5. In the file dialog, select the extracted folder that contains the `manifest.json` file (from the PACO project)
-6. The extension will be added to your browser and appear in the extensions bar
+2. Navigate to:
+3. Enable **Developer Mode**
+4. Click **Load Unpacked**
+5. Select the PACO project folder
+6. Done ✅
 
 ---
 
-## 🎯 How to Use PACO
+# 🎯 How to Use
 
-1. Visit any **public GitHub repository** or **GitHub search result page**
-2. Click the **PACO icon** in the Chrome extensions bar
-3. Press the **"Start Scan"** button
-4. PACO will automatically:
-   - Detect the supported dependency files in the repository (like `package.json`, `requirements.txt`, `pom.xml`, etc.)
-   - Query the corresponding package registries
-   - Identify if packages are:
-     - ✅ **Available**
-     - ❌ **Not found**
-     - 🔴 **Unpublished or removed**
-
----
-
-> 🧪 *Note: Java - pom.xml is not working properly,will update soon*
+1. Visit:
+- A GitHub repository
+- A dependency file (Gemfile / package.json / requirements.txt)
+- A GitHub search results page
+2. Click the **PACO extension icon**
+3. Click **INITIATE SCAN**
+4. PACO will:
+- Detect ecosystem automatically
+- Extract dependencies
+- Query official registries
+- Flag high-risk packages
+5. Click **SAVE SCAN RESULTS** to download JSON report
 
 ---
 
-## ✅ You're All Set!
+# 🔍 Supported Ecosystems
+
+| Ecosystem | Files Scanned | Registry |
+|------------|--------------|----------|
+| **Node.js** | `package.json` | registry.npmjs.org |
+| **Ruby** | `Gemfile` | rubygems.org |
+| **Python** | `requirements.txt` | pypi.org |
+
+> More ecosystems coming soon (Go Modules, Cargo, NuGet, Maven).
 
 ---
 
-## 🚀 What is PACO?
+# 🧠 How PACO Works
 
-**PACO (Package Confuser)** is a lightweight Chrome extension designed to help developers and security researchers uncover potential dependency confusion issues by scanning public GitHub repositories. It detects packages that are:
+1. **Content Script**
+- Detects repository context
+- Extracts dependency files
 
-* 🔴 **Unpublished**
-* ⚠️ **Removed**
-* ❌ **Nonexistent** on public registries
+2. **Dependency Extraction**
+- JSON parsing (NPM)
+- Regex-based gem parsing (Ruby)
+- Line-based parsing (Python)
 
-With a simple click, PACO parses project files like `package.json`, `requirements.txt`, `pom.xml`, and more, checking each dependency against the official package registries in real-time.
+3. **Registry Validation**
+- Queries official registries
+- Detects:
+  - ✅ Published
+  - ❌ Not Found
+  - 🔴 Unpublished
 
----
-
-## ❓ What is Dependency Confusion?
-
-**Dependency Confusion**, also known as **Substitution Attack**, is a software supply-chain vulnerability where an attacker registers a malicious package on a public registry using the **same name as a private/internal dependency** used within an organization. If a build system prioritizes public packages over internal ones, it may inadvertently pull the attacker’s malicious package instead of the intended internal version.
-
-### 🔥 Real-World Example
-
-In 2021, security researcher Alex Birsan exploited this issue across major tech companies (Apple, Microsoft, PayPal, etc.) by uploading intentionally named packages to public registries like npm, PyPI, and RubyGems—triggering automatic installs in their internal pipelines.
-
-> This vulnerability can lead to **remote code execution**, **data exfiltration**, and **supply-chain compromise** if not mitigated properly.
-
-**PACO** helps identify packages in public repos that:
-
-* May not exist on public registries (hinting at private/internal use)
-* Were published but later removed (possible signs of abuse)
-* Could be exploited for name squatting or dependency hijacking
+4. **Smart Filtering**
+- Deduplicates dependencies
+- Handles concurrency efficiently
+- Provides clean output
 
 ---
 
-## 🎯 Why Use PACO?
+# ⚠️ What is Dependency Confusion?
 
-### 🔐 **Security Auditing**
+Dependency Confusion (Substitution Attack) is a supply-chain vulnerability where an attacker publishes a malicious package with the same name as an internal/private dependency.
 
-Unpublished or removed dependencies are often indicators of supply-chain attacks. PACO helps you identify such threats effortlessly.
+If the build system prefers public registries, it may install the malicious package.
 
-### 🧑‍💻 **Open-Source Project Review**
+This can result in:
 
-Before forking or using any public repository, ensure its dependencies are valid and actively maintained.
+- Remote Code Execution
+- Data Exfiltration
+- CI/CD Compromise
+- Supply-Chain Attacks
 
-### ⚙️ **DevOps & QA**
-
-Detect broken or missing packages early, avoiding CI/CD failures and deployment issues.
-
-### 🕵️‍♀️ **Recruitment / Code Review**
-
-Analyze package hygiene in coding assessments or open-source contributions during hiring processes.
-
-### 📈 **Tech Due Diligence**
-
-Assess codebases during M\&A or internal audits for third-party dependency risks.
-
-
-
-## 🔍 Supported Ecosystems
-
-| Ecosystem   | Files Scanned                       | Registry Checked                              |
-| ----------- | ----------------------------------- | --------------------------------------------- |
-| **Node.js** | `package.json`, `package-lock.json` | [npmjs.org](https://registry.npmjs.org/)      |
-| **Python**  | `requirements.txt`, `setup.py`      | [pypi.org](https://pypi.org/)                 |
-| **Ruby**    | `Gemfile`, `Gemfile.lock`           | [rubygems.org](https://rubygems.org/)         |
-| **Java**    | `pom.xml`                           | [search.maven.org](https://search.maven.org/) |
-
-> *More ecosystems coming soon (e.g., Go Modules, Cargo, NuGet)!*
+PACO helps identify such risks early.
 
 ---
 
-## 🧠 How It Works
+# 📊 Example JSON Export
 
-1. **Parse Files**: Scans GitHub pages for package files or links to raw files.
-2. **Extract Dependencies**: Uses regular expressions to parse known formats.
-3. **Check Registries**: Validates each dependency name against its respective registry.
-4. **Classify Status**:
-
-   * ✅ **Found** – Safe
-   * ❌ **Not Found** – Possibly typo, removed, or never published
-   * 🔴 **Unpublished** – Removed from the registry
-5. **Show Results**: Displays scan results in the extension popup, with filters and download support.
+```json
+{
+"timestamp": "2026-02-12T18:32:11Z",
+"target": "https://github.com/org/repo",
+"ecosystem": "RUBY",
+"totalDependencies": 14,
+"totalFindings": 1,
+"findings": [
+ {
+   "name": "example-package",
+   "type": "ruby",
+   "status": "Unpublished"
+ }
+]
+}
 
 ---
 
@@ -150,26 +188,6 @@ Assess codebases during M\&A or internal audits for third-party dependency risks
 | **Backend Logic** | Fetch API, async/await, RegEx            |
 | **Concurrency**   | Custom batch queue with smart throttling |
 | **Messaging**     | Chrome runtime message passing           |
-
----
-## 💡 Key Features
-
-- ✅ **Deep GitHub Search Integration**
-  - Works not only on open repos, but also GitHub search result pages
-- ✅ **Multi-Ecosystem Support**
-  - Scans NPM, PyPI, RubyGems, Maven packages
-- ⚡ **Blazing Fast Queue Processing**
-  - Handles 100+ concurrent requests with smart throttling
-- 📊 **Live Scan Progress**
-  - Animated progress bar with live updates
-- 💥 **Instant Results**
-  - Packages flagged as `Not Found`, `Unpublished`, or safe
-- 🧼 **No External Dependencies**
-  - Lightweight, clean, and framework-free JavaScript
-- 💻 **Developer-Friendly UX**
-  - Checkbox toggles, scrollable results, one-click scan
-- 🔐 **Zero Tracking**
-  - All data stays in your browser. No accounts, no data collection.
 
 ---
 
@@ -187,6 +205,7 @@ paco/
 ```
 
 ---
+
 
 ## 👨‍💻 Authors
 

@@ -2,37 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Package Checker</title>
+    <title>PACO - Dependency Hunter</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>🔍 Package Confuser 🔍</h2>
-        <p>Find unpublished & missing dependencies</p>
 
-        <!-- File Type Selection -->
-        <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" id="npm" checked> NPM (package.json)</label>
-            <label class="checkbox-label"><input type="checkbox" id="ruby"> RubyGems (Gemfile*)</label>
-            <label class="checkbox-label"><input type="checkbox" id="python"> PyPI (requirements.txt)</label>
-            <label class="checkbox-label"><input type="checkbox" id="maven"> Maven (pom.xml)</label>
-        </div>
+<div class="terminal">
 
-        <button id="scan-btn">🚀 Start Scan</button>
-
-        <!-- Progress Status -->
-        <div id="progress-container">
-            <p id="scan-status">Click to start scan...</p>
-            <progress id="progress-bar" value="0" max="100"></progress>
-        </div>
-
-        <!-- Scan Results -->
-        <div id="file-list">
-            <p>📦 Confused packages will appear here...</p>
-        </div>
+    <div class="header">
+        ⚡ PACO v3.1 // Dependency Hunter
+        <div class="status-indicator" id="status-indicator">IDLE</div>
     </div>
 
-    <script src="popup.js"></script>
+    <div class="scan-meta">
+        <div>Target: <span id="target-url">Not Detected</span></div>
+        <div>Ecosystem: <span id="selected-eco">NPM</span></div>
+        <div>Dependencies: <span id="dep-count">0</span></div>
+        <div>Findings: <span id="risk-count">0</span></div>
+    </div>
+
+    <div class="ecosystem-select">
+        <label><input type="radio" name="ecosystem" value="npm" checked> NPM</label>
+        <label><input type="radio" name="ecosystem" value="ruby"> Ruby</label>
+        <label><input type="radio" name="ecosystem" value="python"> Python</label>
+    </div>
+
+    <button id="scan-btn" class="scan-btn">▶ INITIATE SCAN</button>
+    <button id="save-btn" class="scan-btn">💾 SAVE SCAN RESULTS</button>
+
+
+    <div class="progress-wrapper">
+        <progress id="progress-bar" value="0" max="100"></progress>
+        <div id="scan-status">Awaiting execution...</div>
+    </div>
+
+    <div class="log-section">
+        <div class="log-title">▶ Scan Log</div>
+        <div id="scan-log" class="scan-log"></div>
+    </div>
+
+    <div class="results-section">
+        <div class="log-title">▶ Findings</div>
+        <div id="results" class="results"></div>
+    </div>
+
+</div>
+
+<script src="popup.js"></script>
 </body>
 </html>

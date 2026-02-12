@@ -1,47 +1,81 @@
 async function getRepoLinks() {
-    let repoLinks = [];
+    const repoLinks = new Set();
+    const currentUrl = window.location.href;
 
-    // Detect if we're on a GitHub search results page
-    if (window.location.href.includes("github.com/search")) {
-        console.log("Detected GitHub search results page.");
-        
+    /* ================================
+       SEARCH PAGE (Repo + Code)
+    ================================== */
+    if (currentUrl.includes("github.com/search")) {
+
         document.querySelectorAll('a[href]').forEach(link => {
-            let href = link.href;
-            if (href.match(/^https:\/\/github\.com\/[^\/]+\/[^\/]+$/) && !repoLinks.includes(href)) {
-                repoLinks.push(href);
+
+            const href = link.getAttribute("href");
+            if (!href) return;
+
+            // Case 1: Repository search result
+            if (/^\/[^\/]+\/[^\/]+$/.test(href)) {
+                repoLinks.add(`https://github.com${href}`);
+            }
+
+            // Case 2: Code search result (blob links)
+            const blobMatch = href.match(/^\/([^\/]+\/[^\/]+)\/blob\//);
+            if (blobMatch) {
+                repoLinks.add(`https://github.com/${blobMatch[1]}`);
             }
         });
 
-        console.log("Extracted repository links:", repoLinks);
-        return repoLinks;
+        return [...repoLinks];
     }
 
-    return [];
+    /* ================================
+       DIRECT REPO PAGE
+    ================================== */
+    const repoMatch = currentUrl.match(/^https:\/\/github\.com\/[^\/]+\/[^\/]+/);
+
+    if (repoMatch) {
+        repoLinks.add(repoMatch[0]);
+    }
+
+    return [...repoLinks];
 }
 
 async function getPackageLinksFromRepo(repoUrl) {
-    let fileLinks = { npm: [], ruby: [], python: [], maven: [] };
+
+    let fileLinks = { npm: [], ruby: [], python: [] };
+    let seenFiles = new Set();
 
     try {
-        let response = await fetch(repoUrl);
-        let html = await response.text();
-        let parser = new DOMParser();
-        let doc = parser.parseFromString(html, "text/html");
+        const response = await fetch(repoUrl);
+        if (!response.ok) throw new Error("Failed to fetch repo page");
+
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
 
         doc.querySelectorAll('a[href]').forEach(link => {
-            let href = link.href;
 
-            if (href.includes("/blob/")) {
-                let rawUrl = href.replace("/blob/", "/raw/");
+            const href = link.getAttribute("href");
+            if (!href || !href.includes("/blob/")) return;
 
-                if (href.endsWith("package.json")) fileLinks.npm.push({ url: rawUrl });
-                else if (/Gemfile(\..*)?$/.test(href)) fileLinks.ruby.push({ url: rawUrl });
-                else if (/requirements(\..*)?\.txt$/.test(href)) fileLinks.python.push({ url: rawUrl });
-                else if (/pom(\..*)?\.xml$/.test(href)) fileLinks.maven.push({ url: rawUrl });
+            const rawUrl =
+                `https://github.com${href.replace("/blob/", "/raw/")}`;
+
+            if (seenFiles.has(rawUrl)) return;
+            seenFiles.add(rawUrl);
+
+            if (href.endsWith("package.json")) {
+                fileLinks.npm.push({ url: rawUrl });
+            }
+
+            else if (/Gemfile(\..*)?$/.test(href)) {
+                fileLinks.ruby.push({ url: rawUrl });
+            }
+
+            else if (/requirements(\..*)?\.txt$/.test(href)) {
+                fileLinks.python.push({ url: rawUrl });
             }
         });
 
-        console.log(`Extracted files from ${repoUrl}:`, fileLinks);
     } catch (error) {
         console.error(`Failed to fetch repo ${repoUrl}:`, error);
     }
@@ -50,18 +84,28 @@ async function getPackageLinksFromRepo(repoUrl) {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.action === "getFileLinks") {
-        getRepoLinks().then(async (repos) => {
-            let allFiles = { npm: [], ruby: [], python: [], maven: [] };
 
-            for (let repo of repos) {
-                let repoFiles = await getPackageLinksFromRepo(repo);
-                Object.keys(allFiles).forEach(type => allFiles[type].push(...repoFiles[type]));
-            }
+    if (request.action !== "getFileLinks") return;
 
-            console.log("Final extracted file links:", allFiles);
-            sendResponse({ files: allFiles });
-        });
-        return true;
-    }
+    getRepoLinks().then(async (repos) => {
+
+        if (!repos || repos.length === 0) {
+            sendResponse({ files: { npm: [], ruby: [], python: [] } });
+            return;
+        }
+
+        let allFiles = { npm: [], ruby: [], python: [] };
+
+        for (const repo of repos) {
+            const repoFiles = await getPackageLinksFromRepo(repo);
+
+            Object.keys(allFiles).forEach(type => {
+                allFiles[type].push(...repoFiles[type]);
+            });
+        }
+
+        sendResponse({ files: allFiles });
+    });
+
+    return true;
 });
