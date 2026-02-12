@@ -176,7 +176,7 @@ PACO helps identify such risks early.
  }
 ]
 }
-
+```
 ---
 
 ## 🛠 Tech Stack
