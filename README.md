@@ -25,7 +25,7 @@ Lightweight • Fast • Security-Focused • Zero Tracking
 </p>
 
 <p align="center">
-  <img src="icons/demo.gif" alt="PACO Live Demo" width="720px">
+  <img src="icons/demo.gif" alt="PACO Live Demo" width="320px">
 </p>
 
 
