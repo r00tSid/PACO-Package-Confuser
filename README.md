@@ -20,11 +20,16 @@ Lightweight • Fast • Security-Focused • Zero Tracking
 
 ## 📽️ Live Demo
 
-<p align="center">
-  <img src="icons/3.1.png" alt="PACO Screenshot" width="360px">
-  <img src="icons/demo.gif" alt="PACO Live Demo" width="360px">
-</p>
-
+<table align="center">
+<tr>
+<td align="center">
+<img src="icons/3.1.png" alt="Screenshot" width="400">
+</td>
+<td align="center">
+<img src="icons/demo.gif" alt="Live Demo" width="400">
+</td>
+</tr>
+</table>
 ---
 
 ## 👨‍🔬 Tested By
