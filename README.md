@@ -13,37 +13,76 @@ Lightweight • Fast • Security-Focused • Zero Tracking
 </p>
 
 <p align="center">
-  <a href="https://www.producthunt.com/posts/paco-package-confuser?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-paco&#0045;package&#0045;confuser" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=962953&theme=dark&t=1746719637755" alt="PACO&#0032;–&#0032;Package&#0032;Confuser - 🧩&#0032;Chrome&#0032;extension&#0032;to&#0032;find&#0032;missing&#0032;NPM&#0032;packages | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+<img src="https://img.shields.io/github/stars/r00tSid/PACO-Package-Confuser?style=for-the-badge">
+<img src="https://img.shields.io/github/forks/r00tSid/PACO-Package-Confuser?style=for-the-badge">
+<img src="https://img.shields.io/github/license/r00tSid/PACO-Package-Confuser?style=for-the-badge">
+<img src="https://img.shields.io/badge/Security-SupplyChain-red?style=for-the-badge">
+<img src="https://img.shields.io/badge/Extension-Chrome-green?style=for-the-badge">
+
+</p>
+
+<p align="center">
+  <a href="https://www.producthunt.com/posts/paco-package-confuser?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-paco&#0045;package&#0045;confuser" target="_blank">
+  <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=962953&theme=dark&t=1746719637755" alt="PACO Package Confuser | Product Hunt" width="250" height="54" />
+  </a>
 </p>
 
 ---
 
-## 📽️ Live Demo
+
+
+# 🎬 PACO in Action
+
+PACO scanning a GitHub repository and detecting an unpublished dependency that could potentially lead to a **dependency confusion vulnerability**.
 
 <p align="center">
   <img src="icons/3.1.png" alt="Extension Screenshot" width="240">
   <img src="icons/demo.gif" alt="Demo Video" width="720">
 </p>
 
+---
+
+# 🏆 Real World Impact:
+
+<p align="center">
+  <img src="icons/cloudflare_bounty.jpg" alt="Cloudflare Bounty" width="500">
+  <img src="icons/microsoft_response.jpg" alt="Microsoft Acknowledgement" width="240">
+</p>
+
+PACO has been used to identify **real dependency confusion vulnerabilities** in bug bounty programs.
+
+Findings discovered using PACO resulted in the following rewards:
+
+- 💰 **$625 – Cloudflare Bug Bounty**
+- 💰 **$347 – Cloudflare Bug Bounty**
+
+
+These findings demonstrate how **supply-chain vulnerabilities still exist in modern software ecosystems**.
+
+PACO helps security researchers and developers identify such risks before attackers do.
+
+---
+
 ## 👨‍🔬 Tested By
 
 **Sidhanta Palei (@r00tSid)**  
-Security Researcher | Bug Bounty Hunter  
+Security Researcher | Bug Bounty Hunter
 
 ---
 
 # ⚠️ What is Dependency Confusion?
 
-Dependency Confusion (Substitution Attack) is a supply-chain vulnerability where an attacker publishes a malicious package with the same name as an internal/private dependency.
+Dependency Confusion (Substitution Attack) is a **supply-chain vulnerability** where an attacker publishes a malicious package with the same name as an internal/private dependency.
 
-If the build system prefers public registries, it may install the malicious package.
+If the build system prefers public registries, it may install the malicious package instead.
 
 This can result in:
 
 - Remote Code Execution
 - Data Exfiltration
 - CI/CD Compromise
-- Supply-Chain Attacks
+- Supply Chain Attacks
 
 PACO helps identify such risks early.
 
@@ -53,15 +92,14 @@ PACO helps identify such risks early.
 
 **PACO (Package Confuser)** is a Chrome Extension designed to help developers and security researchers identify:
 
-- 🔴 Unpublished packages  
-- ❌ Non-existent dependencies  
-- ⚠️ Potential dependency confusion risks  
-- 📦 Broken or removed packages  
+- 🔴 Unpublished packages
+- ❌ Non-existent dependencies
+- ⚠️ Potential dependency confusion risks
+- 📦 Broken or removed packages
 
 It scans public GitHub repositories and validates dependencies directly against official package registries.
 
 ---
-
 
 # 🆕 What’s New in v3.1
 
@@ -71,23 +109,25 @@ PACO has evolved significantly from its initial release.
 
 PACO now automatically detects ecosystem based on:
 
-- `Gemfile` → Ruby  
-- `package.json` → NPM  
-- `requirements.txt` → Python  
+- `Gemfile` → Ruby
+- `package.json` → NPM
+- `requirements.txt` → Python
 
 Works on:
 
-- Repository pages  
-- Blob/file pages  
-- GitHub search result pages  
+- Repository pages
+- Blob/file pages
+- GitHub search result pages
 
 Detection priority:
-1. URL-based detection  
-2. Repository file fallback  
+
+1. URL-based detection
+2. Repository file fallback
 
 ---
 
-### 📦 JSON Export Support
+## 📦 JSON Export Support
+
 One-click **SAVE SCAN RESULTS** button downloads a structured JSON report containing:
 
 - Target URL
@@ -99,25 +139,26 @@ One-click **SAVE SCAN RESULTS** button downloads a structured JSON report contai
 
 ---
 
-### 🧠 Intelligent Deduplication
+## 🧠 Intelligent Deduplication
+
 - Prevents duplicate dependency scans
 - Prevents duplicate findings
 - Optimized request queue for performance
 
 ---
 
-### 🔎 Improved Search Page Handling
-Fully supports scanning directly from:
+## 🔎 Improved Search Page Handling
 
+Fully supports scanning directly from GitHub search result pages.
 
-Ecosystem detection is now context-aware and URL-driven.
+Ecosystem detection is now **context-aware and URL-driven**.
 
 ---
 
 # 🛠 Installation
 
 1. Open **Google Chrome**
-2. Navigate to:
+2. Navigate to chrome://extension
 3. Enable **Developer Mode**
 4. Click **Load Unpacked**
 5. Select the PACO project folder
@@ -128,51 +169,59 @@ Ecosystem detection is now context-aware and URL-driven.
 # 🎯 How to Use
 
 1. Visit:
+
 - A GitHub repository
-- A dependency file (Gemfile / package.json / requirements.txt)
+- A dependency file (`Gemfile`, `package.json`, `requirements.txt`)
 - A GitHub search results page
+
 2. Click the **PACO extension icon**
+
 3. Click **INITIATE SCAN**
+
 4. PACO will:
+
 - Detect ecosystem automatically
 - Extract dependencies
 - Query official registries
 - Flag high-risk packages
-5. Click **SAVE SCAN RESULTS** to download JSON report
+
+5. Click **SAVE SCAN RESULTS** to download JSON report.
 
 ---
 
 # 🔍 Supported Ecosystems
 
 | Ecosystem | Files Scanned | Registry |
-|------------|--------------|----------|
+|-----------|--------------|----------|
 | **Node.js** | `package.json` | registry.npmjs.org |
 | **Ruby** | `Gemfile` | rubygems.org |
 | **Python** | `requirements.txt` | pypi.org |
 
-> More ecosystems coming soon (Go Modules, Cargo, NuGet, Maven).
+> More ecosystems coming soon: **Go Modules, Cargo, NuGet, Maven**
 
 ---
 
 # 🧠 How PACO Works
 
-1. **Content Script**
-- Detects repository context
-- Extracts dependency files
+### 1️⃣ Content Script
+Detects repository context and extracts dependency files.
 
-2. **Dependency Extraction**
+### 2️⃣ Dependency Extraction
+
 - JSON parsing (NPM)
 - Regex-based gem parsing (Ruby)
 - Line-based parsing (Python)
 
-3. **Registry Validation**
-- Queries official registries
-- Detects:
-  - ✅ Published
-  - ❌ Not Found
-  - 🔴 Unpublished
+### 3️⃣ Registry Validation
 
-4. **Smart Filtering**
+Queries official registries to detect:
+
+- ✅ Published
+- ❌ Not Found
+- 🔴 Unpublished
+
+### 4️⃣ Smart Filtering
+
 - Deduplicates dependencies
 - Handles concurrency efficiently
 - Provides clean output
@@ -183,21 +232,20 @@ Ecosystem detection is now context-aware and URL-driven.
 
 ```json
 {
-"timestamp": "2026-02-12T18:32:11Z",
-"target": "https://github.com/org/repo",
-"ecosystem": "RUBY",
-"totalDependencies": 14,
-"totalFindings": 1,
-"findings": [
- {
-   "name": "example-package",
-   "type": "ruby",
-   "status": "Unpublished"
- }
-]
+ "timestamp": "2026-02-12T18:32:11Z",
+ "target": "https://github.com/org/repo",
+ "ecosystem": "RUBY",
+ "totalDependencies": 14,
+ "totalFindings": 1,
+ "findings": [
+  {
+    "name": "example-package",
+    "type": "ruby",
+    "status": "Unpublished"
+  }
+ ]
 }
 ```
----
 
 ## 🛠 Tech Stack
 
@@ -240,3 +288,5 @@ paco/
 * This extension is **not affiliated with or endorsed by GitHub**.
 
 ---
+
+
