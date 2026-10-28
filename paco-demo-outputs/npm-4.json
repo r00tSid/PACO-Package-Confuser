@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-19T11:25:31.868Z",
+  "target": "https://github.com/search?q=path%3A**%2Fpackage.json&type=code&p=4",
+  "ecosystem": "NPM",
+  "totalDependencies": "412",
+  "totalFindings": 2,
+  "findings": [
+    {
+      "name": "@sb/cli",
+      "type": "npm",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/direkshan-digital/apptension-saas-boilerplate/raw/master/package.json"
+    },
+    {
+      "name": "@sb/core",
+      "type": "npm",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/direkshan-digital/apptension-saas-boilerplate/raw/master/package.json"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-19T12:03:51.526Z",
+  "target": "https://github.com/search?q=path%3A**%2Frequirements.txt&type=code&p=4",
+  "ecosystem": "PYTHON",
+  "totalDependencies": "76",
+  "totalFindings": 2,
+  "findings": [
+    {
+      "name": "python",
+      "type": "python",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/broutonlab/deep-learning-course/raw/2022-fall/requirements.txt"
+    },
+    {
+      "name": "umap",
+      "type": "python",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/MSRG/qregress/raw/main/requirements.txt"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-19T11:56:14.327Z",
+  "target": "https://github.com/search?q=path%3A**%2Frequirements.txt&type=code&p=3",
+  "ecosystem": "PYTHON",
+  "totalDependencies": "305",
+  "totalFindings": 2,
+  "findings": [
+    {
+      "name": "python",
+      "type": "python",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/icoxfog417/number_recognizer/raw/master/conda-requirements.txt"
+    },
+    {
+      "name": "executin",
+      "type": "python",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/junwenxiong/diff_sal/raw/main/requirements.txt"
+    }
+  ]
+}

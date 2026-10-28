@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-03-19T12:25:52.523Z",
+  "target": "https://github.com/search?q=path%3A**%2Fgemfile&type=code",
+  "ecosystem": "RUBY",
+  "totalDependencies": "192",
+  "totalFindings": 4,
+  "findings": [
+    {
+      "name": "omniauth-france_connect",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/OpenSourcePolitics/decidim-cese/raw/master/Gemfile"
+    },
+    {
+      "name": "decidim-blog_author_petition",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/OpenSourcePolitics/decidim-cese/raw/master/Gemfile"
+    },
+    {
+      "name": "decidim-initiative_status",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/OpenSourcePolitics/decidim-cese/raw/master/Gemfile"
+    },
+    {
+      "name": "quik_cv_models",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/baphled/dummyapp/raw/master/Gemfile"
+    }
+  ]
+}

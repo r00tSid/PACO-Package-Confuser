@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-03-19T11:04:28.303Z",
+  "target": "https://github.com/search?q=path%3A**%2Fpackage.json&type=code&p=2",
+  "ecosystem": "NPM",
+  "totalDependencies": "199",
+  "totalFindings": 1,
+  "findings": [
+    {
+      "name": "potchain-api",
+      "type": "npm",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/PotWallet/PotWallet-Chain/raw/master/package.json"
+    }
+  ]
+}

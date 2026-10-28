@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-03-19T10:53:21.977Z",
+  "target": "https://github.com/search?q=path%3A**%2Fpackage.json&type=code",
+  "ecosystem": "NPM",
+  "totalDependencies": "405",
+  "totalFindings": 3,
+  "findings": [
+    {
+      "name": "@fortawesome/pro-solid-svg-icons",
+      "type": "npm",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/Bounties-Network/Explorer/raw/master/package.json"
+    },
+    {
+      "name": "@fortawesome/pro-regular-svg-icons",
+      "type": "npm",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/Bounties-Network/Explorer/raw/master/package.json"
+    },
+    {
+      "name": "@fortawesome/pro-light-svg-icons",
+      "type": "npm",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/Bounties-Network/Explorer/raw/master/package.json"
+    }
+  ]
+}

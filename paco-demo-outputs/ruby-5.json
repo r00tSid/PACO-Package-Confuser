@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-03-19T12:54:28.338Z",
+  "target": "https://github.com/search?q=path%3A**%2Fgemfile&type=code&p=5",
+  "ecosystem": "RUBY",
+  "totalDependencies": "209",
+  "totalFindings": 1,
+  "findings": [
+    {
+      "name": "code_climate_badges",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/c1505/WebsiteOne/raw/develop/Gemfile"
+    }
+  ]
+}

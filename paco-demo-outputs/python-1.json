@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-03-19T11:36:21.244Z",
+  "target": "https://github.com/search?q=path%3A**%2Frequirements.txt&type=code",
+  "ecosystem": "PYTHON",
+  "totalDependencies": "187",
+  "totalFindings": 1,
+  "findings": [
+    {
+      "name": "pickle",
+      "type": "python",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/Doubiiu/CodeTalker/raw/main/requirements.txt"
+    }
+  ]
+}

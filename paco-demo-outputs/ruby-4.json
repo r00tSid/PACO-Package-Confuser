@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-03-19T12:44:58.365Z",
+  "target": "https://github.com/search?q=path%3A**%2Fgemfile&type=code&p=4",
+  "ecosystem": "RUBY",
+  "totalDependencies": "215",
+  "totalFindings": 4,
+  "findings": [
+    {
+      "name": "fragments.js",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/RamilyaNigmatullina/pdp-1/raw/master/Gemfile"
+    },
+    {
+      "name": "rails-assets-jquery-debounce",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/RamilyaNigmatullina/pdp-1/raw/master/Gemfile"
+    },
+    {
+      "name": "rails-assets-jquery2",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/RamilyaNigmatullina/pdp-1/raw/master/Gemfile"
+    },
+    {
+      "name": "railsyard-markdown-content",
+      "type": "ruby",
+      "status": "Not Found",
+      "sourceFile": "https://github.com/railsyard/railsyardcms/raw/master/Gemfile"
+    }
+  ]
+}
